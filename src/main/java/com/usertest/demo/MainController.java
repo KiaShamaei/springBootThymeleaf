@@ -10,8 +10,4 @@ public class MainController {
     public  String showHomePage (){
         return "index";
     }
-    @GetMapping("/users")
-    public String users (){
-        return "users";
-    }
 }
