@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.Optional;
 
 
 @DataJpaTest
@@ -22,10 +23,10 @@ public class UserRepositoryTest {
     @Test
     public  void TestAddNew(){
         User user = new User();
-        user.setEmail("nima@gmail.com");
+        user.setEmail("kia@gmail.com");
         user.setPassword("1234");
-        user.setFirstName("nima");
-        user.setLastName("nimaee");
+        user.setFirstName("kia");
+        user.setLastName("kiaeee");
         User savedUser = repo.save(user);
         Assertions.assertThat(savedUser).isNotNull();
         Assertions.assertThat(savedUser.getId()).isGreaterThan(0);
@@ -38,5 +39,17 @@ public class UserRepositoryTest {
             System.out.println(users.toString());
 
         }
+    }
+    @Test
+    public void testUpdate(){
+        Integer userId = 1 ;
+        Optional <User> optionalUser = repo.findById(userId);
+        User user= optionalUser.get();
+        user.setPassword("helll0world");
+        repo.save(user) ;
+
+        User updateUsesr = repo.findById(userId).get();
+        Assertions.assertThat(updateUsesr.getPassword()).isEqualTo("helll0world");
+
     }
 }
