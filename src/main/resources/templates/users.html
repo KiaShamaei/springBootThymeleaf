@@ -13,7 +13,7 @@
 <div class="container-fluid text-center">
 <div>
     <table class="table table-bordered">
-        <thead>
+        <thead class="thead-dark">
         <tr>
             <th>Id</th>
             <th>firstName</th>
@@ -22,6 +22,25 @@
             <th></th>
         </tr>
         </thead>
+        <tbody>
+        <th:block th:each="user : ${listUser}">
+        <tr>
+            <td>[[${user.id}]]</td>
+
+
+                <td>[[${user.firstName}]]</td>
+
+
+                <td>[[${user.lastName}]]</td>
+
+
+                <td>[[${user.email}]]</td>
+            <td>Edit</td>
+            </tr>
+
+        </th:block>
+
+        </tbody>
     </table>
 </div>
 </div>
