@@ -23,10 +23,10 @@ public class UserRepositoryTest {
     @Test
     public  void TestAddNew(){
         User user = new User();
-        user.setEmail("kia@gmail.com");
-        user.setPassword("1234");
-        user.setFirstName("kia");
-        user.setLastName("kiaeee");
+        user.setEmail("sima@gmail.com");
+        user.setPassword("1888");
+        user.setFirstName("sima");
+        user.setLastName("nsimaee");
         User savedUser = repo.save(user);
         Assertions.assertThat(savedUser).isNotNull();
         Assertions.assertThat(savedUser.getId()).isGreaterThan(0);
@@ -52,4 +52,20 @@ public class UserRepositoryTest {
         Assertions.assertThat(updateUsesr.getPassword()).isEqualTo("helll0world");
 
     }
+    @Test
+    public void testGet(){
+        Integer userId = 1 ;
+        Optional<User> optionalUser = repo.findById(userId);
+        Assertions.assertThat(optionalUser).isPresent() ;
+        System.out.println(optionalUser.get());
+    }
+    @Test
+    public void testDelete(){
+        Integer userId = 1 ;
+        repo.deleteById(userId);
+
+        Optional<User> userDeleted = repo.findById(userId);
+        Assertions.assertThat(userDeleted).isNotPresent();
+    }
+
 }
