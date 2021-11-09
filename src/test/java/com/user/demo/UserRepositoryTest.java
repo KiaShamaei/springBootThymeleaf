@@ -1,11 +1,10 @@
-package com.usertest.demo;
+package com.user.demo;
 
 
-import com.usertest.demo.users.User;
-import com.usertest.demo.users.UserRepository;
 
+import com.user.demo.users.User;
+import com.user.demo.users.UserRepository;
 import org.assertj.core.api.Assertions;
-import org.assertj.core.api.Condition;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -19,13 +18,13 @@ import java.util.Optional;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(false)
 public class UserRepositoryTest {
-    @Autowired private UserRepository repo ;
+    @Autowired private UserRepository repo;
     @Test
     public  void TestAddNew(){
         User user = new User();
-        user.setEmail("sima@gmail.com");
-        user.setPassword("1888");
-        user.setFirstName("sima");
+        user.setEmail("dgima@gmail.com");
+        user.setPassword("1555");
+        user.setFirstName("dima");
         user.setLastName("nsimaee");
         User savedUser = repo.save(user);
         Assertions.assertThat(savedUser).isNotNull();

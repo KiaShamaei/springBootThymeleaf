@@ -1,4 +1,4 @@
-package com.usertest.demo.users;
+package com.user.demo.users;
 
 
 import org.hibernate.annotations.GeneratorType;

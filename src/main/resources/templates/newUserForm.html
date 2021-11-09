@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+    >
+    <title>NewUserForm</title>
+</head>
+<body>
+<div class="container-fluid text-center">
+
+<h3>New user add Here!</h3>
+    <a class="h2" th:href="@{/users}" > Manage users</a>
+    <div class="form-group row ">
+        <form th:action="@{/user/save}" method="post" th:object="${user}"
+        style="max-width: 600px ; margin: 0 auto;"
+        >
+           <div class="border border-rounded p-3">
+               <label class="col-sm-6 col-form-label">firstName :</label>
+               <input type="text"   class="col-sm-5" name="firstName" th:field="*{firstName}">
+               <label class="col-sm-6 col-form-label">lastName :</label>
+               <input type="text"  class="col-sm-5" name="lastName" th:field="*{lastName}">
+               <label class="col-sm-6 col-form-label" >email :</label>
+               <input type="email"  class="col-sm-5 " name="email" th:field="*{email}">
+               <label class="col-sm-6 col-form-label">password :</label>
+               <input type="text"  class="col-sm-5 " name="password" th:field="*{password}">
+               <button type="submit" class="col-sm-4 m-2 btn btn-primary  "> Submit</button>
+               <button type="button" class="col-sm-4 m-2 btn btn-danger  " onclick="cancelForm()"> cancel</button>
+
+           </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    function cancelForm() {
+        window.location = "[[@{/users}]]"
+
+    }
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.usertest.demo.users;
+package com.user.demo.users;
 
 
 
@@ -16,4 +16,8 @@ public class UserService {
     public List<User> listAll(){
         return (List<User>) repo.findAll();
     }
+    public void saveUser(User user){
+        repo.save(user);
+    }
+    public void deleteById(int id){  repo.deleteById(id);}
 }
