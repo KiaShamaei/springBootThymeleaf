@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -30,8 +31,9 @@ public class UserController {
         return "newUserForm";
     }
     @PostMapping(value = "/user/save")
-    public String saveUser(User user){
+    public String saveUser(User user  , RedirectAttributes ra){
         service.saveUser(user);
+        ra.addFlashAttribute("message" , "addnew is successfully");
         return "redirect:/users";
     }
 
